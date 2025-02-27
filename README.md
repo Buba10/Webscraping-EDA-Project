@@ -15,10 +15,6 @@ This project is designed to scrape data from an e-commerce website to gather inf
 
 This project is licensed under MIT: See LICENSE
 
-# Installation
-
-1. Clone the repository: https://github.com/Buba10/Webscraping-EDA-Project
-
 # Contacts
 
 Mintehb8@gmail.com
