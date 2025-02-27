@@ -2,7 +2,18 @@
 
 # Overview
 
-The **Web Scraping and EDA Project** is designed to scrape data from an e-commerce website to gather information about gaming laptops. The scraped data is then analyzed for exploratory data analysis (EDA) to gain insights into the laptop market.
+The **Web Scraping and EDA Project** is designed to scrape data from an e-commerce website to gather information about gaming laptops. The scraped data is then analyzed through exploratory data analysis (EDA) to gain insights into the laptop market. This project aims to provide valuable information regarding laptop specifications, pricing trends, and market dynamics.
+
+This tool extracts various attributes of laptops, including their:
+- Name
+- Rating
+- Price
+- Processor
+- Memory (RAM)
+- Operating System (OS)
+- Storage (SSD/HDD)
+- Display specifications
+- Inclusion details (accessories, etc.)
 
 # Features
 
