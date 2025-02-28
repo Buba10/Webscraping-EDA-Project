@@ -1,18 +1,31 @@
-# tests/test_app.py
+import sys
+import os
 import pytest
 import subprocess
+
+# Adjust the path to include the project root
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from app import app
 
 @pytest.fixture
 def client():
+    """
+    Fixture that provides a test client for the Flask application.
+    This client can be used in tests to simulate requests to the app. 
+    The client is created at the beginning of the test and properly 
+    cleaned up afterwards. Any necessary setup or teardown actions 
+    can be added if needed.
+    """
     with app.test_client() as client:
         yield client
 
 def run_scraper():
     # Run the scraper without saving to CSV
-    subprocess.run(['python', 'web_scraping_script.py', '--no-save'], check=True)
+    subprocess.run(['python', 'scraper.py', '--no-save'], check=True)
 
 def test_get_items(client):
+    # Tests the /items endpoint after running the scraper.
     run_scraper()  # Run the scraper to ensure it works
     response = client.get('/items')
     assert response.status_code == 200
@@ -24,4 +37,4 @@ def test_scraper_functionality():
         run_scraper()  # Run the scraper to ensure it works
         assert True  # If it runs without exceptions, the functionality is confirmed
     except Exception as e:
-        assert False, f"Scraper failed with exception: {e}"
+        pytest.fail(f"Scraper failed with exception: {e}")
